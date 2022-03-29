@@ -24,5 +24,10 @@ namespace Bliss.Data.Repositories
                 .Skip(offset)
                 .Take(limit)
                 .ToListAsync();
+
+        public override async Task<QuestionModel> GetById(int id) =>
+            await Db.Questions
+                .Include(f => f.Choices)
+                .FirstOrDefaultAsync(x => x.Id == id);
     }
 }

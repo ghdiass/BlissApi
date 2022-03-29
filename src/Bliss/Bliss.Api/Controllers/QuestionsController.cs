@@ -30,5 +30,23 @@ namespace Bliss.Api.Controllers.Shared
                 throw;
             }
         }
+
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            try
+            {
+                var question = await _questionRepository.GetById(id);
+
+                return question != null 
+                    ? ResponseOk(question)
+                    : NotFound();
+            }
+            catch (Exception e)
+            {
+                //Add log
+                throw;
+            }
+        }
     }
 }
