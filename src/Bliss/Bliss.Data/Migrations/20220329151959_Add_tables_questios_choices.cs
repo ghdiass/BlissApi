@@ -48,7 +48,7 @@ namespace Bliss.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Questions",
                 columns: new[] { "Id", "Image_url", "Published_at", "Question", "Thumb_url", "Update_at" },
-                values: new object[] { 1, "https://dummyimage.com/600x400/000/fff.png&text=question+1+image+(600x400)", new DateTime(2022, 3, 29, 9, 36, 0, 858, DateTimeKind.Local).AddTicks(8981), "Favourite programming language?", "https://dummyimage.com/120x120/000/fff.png&text=question+1+image+(120x120)", null });
+                values: new object[] { 1, "https://dummyimage.com/600x400/000/fff.png&text=question+1+image+(600x400)", new DateTime(2022, 3, 29, 12, 19, 59, 54, DateTimeKind.Local).AddTicks(5711), "Favourite programming language?", "https://dummyimage.com/120x120/000/fff.png&text=question+1+image+(120x120)", null });
 
             migrationBuilder.InsertData(
                 table: "Choices",

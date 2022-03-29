@@ -1,4 +1,9 @@
-﻿using Bliss.Business.Interfaces.Repositories;
+﻿using AutoMapper;
+using Bliss.Business.Dtos;
+using Bliss.Business.Interfaces.Notification;
+using Bliss.Business.Interfaces.Repositories;
+using Bliss.Business.Interfaces.Services;
+using Bliss.Business.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,9 +16,16 @@ namespace Bliss.Api.Controllers.Shared
     public class QuestionsController : ApiController
     {
         private readonly IQuestionRepository _questionRepository;
+        private readonly IQuestionService _questionService;
+        private readonly IMapper _mapper;
 
-        public QuestionsController(IQuestionRepository questionRepository) : base()
+        public QuestionsController(IQuestionRepository questionRepository,
+                                   IQuestionService questionService,
+                                   IMapper mapper,
+                                   INotifier notifier) : base(notifier)
         {
+            _mapper = mapper;
+            _questionService = questionService;
             _questionRepository = questionRepository;
         }
 
@@ -41,6 +53,21 @@ namespace Bliss.Api.Controllers.Shared
                 return question != null 
                     ? ResponseOk(question)
                     : NotFound();
+            }
+            catch (Exception e)
+            {
+                //Add log
+                throw;
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Insert([FromBody] CreateQuestionDto createQuestion)
+        {
+            try
+            {
+                var question = await _questionService.Insert(_mapper.Map<QuestionModel>(createQuestion));
+                return ResponseCreated(question);
             }
             catch (Exception e)
             {

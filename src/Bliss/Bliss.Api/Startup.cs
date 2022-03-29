@@ -1,3 +1,4 @@
+using Bliss.Api.AutoMapper;
 using Bliss.Api.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,6 +21,7 @@ namespace Bliss.Api
         {
             services.AddController();
             services.AddSwagger();
+            services.AddAutoMapper(typeof(AutoMapperConfig));
             services.AddBlissContext(Configuration);
 
             services.ResolveDependencies();

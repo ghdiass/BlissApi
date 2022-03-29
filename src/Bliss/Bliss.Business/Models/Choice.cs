@@ -8,6 +8,11 @@ namespace Bliss.Business.Models
         public ChoiceModel()
         {   }
 
+        public ChoiceModel(string choice)
+        {
+            Choice = choice;
+        }
+
         public ChoiceModel(int id, int questionId, string choice)
         {
             Id = id;

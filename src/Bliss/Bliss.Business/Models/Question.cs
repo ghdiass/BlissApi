@@ -7,7 +7,9 @@ namespace Bliss.Business.Models
     public class QuestionModel : Entity
     {
         public QuestionModel()
-        {   }
+        {
+            Published_at = DateTime.Now;
+        }
 
         public QuestionModel(int id,
                              string question, 

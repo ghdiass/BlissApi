@@ -103,7 +103,7 @@ namespace Bliss.Data.Migrations
                         {
                             Id = 1,
                             Image_url = "https://dummyimage.com/600x400/000/fff.png&text=question+1+image+(600x400)",
-                            Published_at = new DateTime(2022, 3, 29, 9, 36, 0, 858, DateTimeKind.Local).AddTicks(8981),
+                            Published_at = new DateTime(2022, 3, 29, 12, 19, 59, 54, DateTimeKind.Local).AddTicks(5711),
                             Question = "Favourite programming language?",
                             Thumb_url = "https://dummyimage.com/120x120/000/fff.png&text=question+1+image+(120x120)"
                         });
