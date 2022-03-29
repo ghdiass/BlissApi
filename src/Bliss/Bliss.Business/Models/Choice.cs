@@ -13,6 +13,12 @@ namespace Bliss.Business.Models
             Choice = choice;
         }
 
+        public ChoiceModel(string choice, int votes)
+        {
+            Choice = choice;
+            Votes = votes;
+        }
+
         public ChoiceModel(int id, int questionId, string choice)
         {
             Id = id;

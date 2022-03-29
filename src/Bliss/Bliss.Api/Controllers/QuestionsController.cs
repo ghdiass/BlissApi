@@ -38,8 +38,7 @@ namespace Bliss.Api.Controllers.Shared
             }
             catch (Exception e)
             {
-                //Add log
-                throw;
+                return ResponseInternalServerError(e);
             }
         }
 
@@ -56,8 +55,7 @@ namespace Bliss.Api.Controllers.Shared
             }
             catch (Exception e)
             {
-                //Add log
-                throw;
+                return ResponseInternalServerError(e);
             }
         }
 
@@ -71,8 +69,21 @@ namespace Bliss.Api.Controllers.Shared
             }
             catch (Exception e)
             {
-                //Add log
-                throw;
+                return ResponseInternalServerError(e);
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateQuestionDto updateQuestion)
+        {
+            try
+            {
+                var question = await _questionService.Update(_mapper.Map<QuestionModel>(updateQuestion));
+                return ResponseCreated(question);
+            }
+            catch (Exception e)
+            {
+                return ResponseInternalServerError(e);
             }
         }
     }

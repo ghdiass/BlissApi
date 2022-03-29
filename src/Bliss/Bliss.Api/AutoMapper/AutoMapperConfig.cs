@@ -12,7 +12,10 @@ namespace Bliss.Api.AutoMapper
             CreateMap<CreateQuestionDto, QuestionModel>()
                 .ForMember(x => x.Choices,
                            opts => opts.MapFrom(src => src.Choices.Select(c => new ChoiceModel(c))));
-                
+
+            CreateMap<UpdateQuestionDto, QuestionModel>()
+                .ForMember(x => x.Choices,
+                           opts => opts.MapFrom(src => src.Choices.Select(c => new ChoiceModel(c.Choice, c.Votes))));
         }
     }
 }

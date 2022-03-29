@@ -30,5 +30,17 @@ namespace Bliss.Business.Models
         public DateTime? Update_at { get; set; }
 
         public List<ChoiceModel> Choices { get; set; }
+
+        public void Update(string question,
+                           string image_url,
+                           string thumb_url,
+                           List<ChoiceModel> choices)
+        {
+            Question = question;
+            Image_url = image_url;
+            Thumb_url = thumb_url;
+            Update_at = DateTime.Now;
+            Choices = choices;
+        }
     }
 }

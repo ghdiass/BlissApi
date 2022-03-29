@@ -6,5 +6,6 @@ namespace Bliss.Business.Interfaces.Services
     public interface IQuestionService
     {
         Task<QuestionModel> Insert(QuestionModel question);
+        Task<QuestionModel> Update(QuestionModel question);
     }
 }

@@ -30,22 +30,25 @@ namespace Bliss.Data.Repositories.Shared
         public virtual async Task<List<TEntity>> GetAll() =>
             await DbSet.ToListAsync();
 
-        public virtual async Task Insert(TEntity entity)
+        public virtual async Task Insert(TEntity entity, bool saveChanges = true)
         {
             DbSet.Add(entity);
-            await SaveChanges();
+            if(saveChanges)
+                await SaveChanges();
         }
 
-        public virtual async Task Update(TEntity entity)
+        public virtual async Task Update(TEntity entity, bool saveChanges = true)
         {
             DbSet.Update(entity);
-            await SaveChanges();
+            if (saveChanges)
+                await SaveChanges();
         }
 
-        public virtual async Task Delete(int id)
+        public virtual async Task Delete(int id, bool saveChanges = true)
         {
             DbSet.Remove(new TEntity { Id = id });
-            await SaveChanges();
+            if (saveChanges)
+                await SaveChanges();
         }
 
         public async Task<int> SaveChanges() =>
