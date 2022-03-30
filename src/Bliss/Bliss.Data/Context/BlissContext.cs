@@ -15,6 +15,7 @@ namespace Bliss.Data.Context
 
         public DbSet<QuestionModel> Questions { get; set; }
         public DbSet<ChoiceModel> Choices { get; set; }
+        public DbSet<Email> Emails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

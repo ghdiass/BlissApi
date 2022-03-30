@@ -1,7 +1,8 @@
-﻿using Bliss.Business.Models.Validations.Extensions;
+﻿using Bliss.Business.Models;
+using Bliss.Business.Validations.Extensions;
 using FluentValidation;
 
-namespace Bliss.Business.Models.Validations
+namespace Bliss.Business.Validations
 {
     public class QuestionValidation : AbstractValidator<QuestionModel>
     {

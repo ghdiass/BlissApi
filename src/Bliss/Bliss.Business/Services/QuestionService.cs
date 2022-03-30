@@ -2,7 +2,7 @@
 using Bliss.Business.Interfaces.Repositories;
 using Bliss.Business.Interfaces.Services;
 using Bliss.Business.Models;
-using Bliss.Business.Models.Validations;
+using Bliss.Business.Validations;
 using Bliss.Business.Services.Shared;
 using System.Linq;
 using System.Threading.Tasks;

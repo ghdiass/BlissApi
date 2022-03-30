@@ -23,7 +23,6 @@ namespace Bliss.Api
             services.AddSwagger();
             services.AddAutoMapper(typeof(AutoMapperConfig));
             services.AddBlissContext(Configuration);
-
             services.ResolveDependencies();
         }
 

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using System;
 
-namespace Bliss.Business.Models.Validations.Extensions
+namespace Bliss.Business.Validations.Extensions
 {
     public static class Validations
     {
